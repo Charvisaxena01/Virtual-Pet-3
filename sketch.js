@@ -24,7 +24,12 @@ function setup() {
 
   database = firebase.database()
   createCanvas(1000, 500);
-
+	
+    fedTime = database.ref('FeedTime')
+      fedTime.on("value",function(data){
+        lastFed = data.val()
+      });
+	
   foodOj = new Food()
 
  foodStock = database.ref('Food');
@@ -62,20 +67,8 @@ function draw() {
   foodOj.display()
 
 
-      fedTime = database.ref('FeedTime')
-      fedTime.on("value",function(data){
-        lastFed = data.val()
-      });
-   fill(255,255,254)
-   textSize(15)
-   if(lastFed>=12){
-     text("LastFeed :" + lastFed%12+"PM", 350,30)
-   }else if(lastFed == 0){
-     text("Last Feed : 12 AM", 350,30)
+  
 
-   }else{
-     text("Last Feed : " + lastFed+"AM",350,30)
-   }
   if(gameState!="Hungry"){
     feedPet.hide()
     addFood.hide()
@@ -115,20 +108,12 @@ function readStock(data){
   foodS=data.val();
   foodOj.updateFoodStock(foodS)
 }
-function writeStock(x){
-  if(x<=0){
-    x=0;
-  }else{
-    x=x-1;
-  }
-  database.ref('/').update({
-    Food:x
-  })
-}
+
 function feedDog(){
   dog.addImage(happyDog)
   
   foodOj.updateFoodStock(foodOj.getFoodStock()-1)
+	gameState:"Hungry";
   database.ref('/').update({
     Food:foodOj.getFoodStock(),
     fedTime:hour()
