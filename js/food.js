@@ -24,6 +24,7 @@ class Food {
     }
 
     display(){
+        background("blue")
       var x=80,y=100;
         bedroom(){
     background(bedroom,550,500)
