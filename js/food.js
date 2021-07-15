@@ -26,16 +26,7 @@ class Food {
     display(){
         background("blue")
       var x=80,y=100;
-        bedroom(){
-    background(bedroom,550,500)
-  }
-  garden(){
-    background(garden,2050,800)
 
-  }
-  washroom(){
-    background(washroom,550,500)
-  }
       imageMode(CENTER);
   
          fill(255,255,254)
@@ -59,5 +50,14 @@ class Food {
         }
       }
     }
-    
+            bedroom(){
+    background(bedroom,550,500)
+  }
+  garden(){
+    background(garden,2050,800)
+
+  }
+  washroom(){
+    background(washroom,550,500)
+  }
 }
