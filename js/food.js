@@ -22,7 +22,10 @@ class Food {
     getFoodStock(){
       return this.foodStock;
     }
-  bedroom(){
+
+    display(){
+      var x=80,y=100;
+        bedroom(){
     background(bedroom,550,500)
   }
   garden(){
@@ -32,9 +35,6 @@ class Food {
   washroom(){
     background(washroom,550,500)
   }
-    display(){
-      var x=80,y=100;
-      
       imageMode(CENTER);
   
          fill(255,255,254)
